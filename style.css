@@ -1,0 +1,110 @@
+:root {
+    --pink-light: #FFC0CB; /* Light Pink */
+    --pink-medium: #F08080; /* Medium Pink */
+    --pink-dark: #C71585; /* Dark Pink/Berry */
+    --white-transparent: rgba(255, 255, 255, 0.7);
+}
+
+.background-aesthetic {
+    /* Mirip dengan background buram di gambar */
+    background: linear-gradient(135deg, var(--pink-light) 0%, #ADD8E6 50%, #FFB6C1 100%);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.login-container {
+    /* Efek Glassmorphism (Kaca Buram) */
+    background: var(--white-transparent);
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    padding: 50px 30px 30px; /* Ruang atas lebih besar untuk icon */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    position: relative;
+}
+
+.user-icon-circle {
+    /* Icon lingkaran pink di atas kotak login */
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    background-color: var(--pink-medium);
+    border-radius: 50%;
+    border: 5px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-icon-circle i {
+    font-size: 40px;
+    color: white;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 0 10px;
+    height: 45px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 0 10px;
+    height: 100%;
+    background: transparent;
+    color: #333;
+}
+
+.icon-prefix {
+    color: #999;
+    font-size: 16px;
+}
+
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: #666;
+}
+
+.forgot-password {
+    color: var(--pink-medium);
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.login-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--pink-medium);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    letter-spacing: 1px;
+}
+
+.login-button:hover {
+    background-color: var(--pink-dark);
+}

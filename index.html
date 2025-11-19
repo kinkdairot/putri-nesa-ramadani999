@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Login UI</title>
+    <!-- Link Font Awesome untuk Ikon (User, Gembok, Centang) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Variabel Warna */
+        :root {
+            --pink-primary: #F06292; /* Warna Pink Utama */
+            --pink-light: #FCE4EC;   /* Warna Pink Sangat Muda (Untuk Dashboard) */
+            --text-dark: #333;       /* Warna Teks Gelap */
+            --text-light: #aaa;      /* Warna Teks Placeholder */
+        }
+
+        /* 1. Body & Background Styling */
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden; 
+        }
+
+        /* Simulasi Background Blur/Bokeh */
+        .background {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            /* Gradient yang menyerupai warna pink-biru-putih pada gambar */
+            background: linear-gradient(135deg, #FFC0CB 0%, #ADD8E6 50%, #F5F5DC 100%);
+            filter: blur(50px); 
+            z-index: -1;
+        }
+
+        /* 2. Login Container (Kotak Login) */
+        .login-container {
+            position: relative;
+            width: 350px;
+            padding: 60px 40px 40px;
+            
+            /* Efek Glassmorphism (Kaca Buram) */
+            background: rgba(255, 255, 255, 0.4); 
+            backdrop-filter: blur(10px); 
+            border-radius: 10px;
+            
+            /* Garis luar tipis putih */
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            transform: translateY(25px); 
+        }
+
+        /* 3. Profile Icon (Ikon Bulat Pink) */
+        .profile-icon {
+            position: absolute;
+            top: -50px; 
+            left: 50%;
+            transform: translateX(-50%);
+            
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--pink-primary);
+            
+            /* Styling Ikon User (dari Font Awesome) */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            color: white; 
+            border: 5px solid white; 
+            box-sizing: border-box;
+        }
+
+        /* 4. Input Fields */
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid white; 
+        }
+
+        .input-group i {
+            color: var(--text-dark);
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .input-group input {
+            border: none;
+            outline: none;
+            flex-grow: 1;
+            padding: 0;
+            background: transparent;
+            font-size: 16px;
+            color: var(--text-dark);
+        }
+
+        .input-group input::placeholder {
+            color: var(--text-light);
+        }
+        
+        /* 5. Remember Me & Forgot Password */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            color: var(--text-dark);
+        }
+
+        /* Styling Checkbox Custom */
+        .remember-me input[type="checkbox"] {
+            appearance: none; 
+            width: 16px;
+            height: 16px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-right: 8px;
+            cursor: pointer;
+            position: relative;
+            display: inline-block;
+        }
+
+        .remember-me input[type="checkbox"]:checked {
+            background-color: var(--pink-primary);
+            border-color: var(--pink-primary);
+        }
+
+        /* Ikon centang di dalam checkbox */
+        .remember-me input[type="checkbox"]:checked::after {
+            content: "\f00c"; 
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: white;
+            font-size: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .forgot-password {
+            color: var(--pink-primary); 
+            text-decoration: none;
+            opacity: 0.7; 
+        }
+        
+        /* 6. Login Button */
+        .login-button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--pink-primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 25px;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(240, 98, 146, 0.4); 
+            transition: background-color 0.3s;
+        }
+
+        .login-button:hover {
+            background-color: #D8436A; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background"></div>
+
+    <div class="login-container">
+        
+        <!-- Ikon Profil -->
+        <div class="profile-icon">
+             <i class="fas fa-user"></i>
+        </div>
+
+        <form id="login-form">
+            
+            <!-- Input Username -->
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="username" placeholder="Username" required>
+            </div>
+
+            <!-- Input Password -->
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="********" required>
+            </div>
+
+            <!-- Remember Me & Forgot Password -->
+            <div class="controls">
+                <label class="remember-me">
+                    <input type="checkbox" checked>
+                    Remember me
+                </label>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+
+            <!-- Tombol Login -->
+            <button type="submit" class="login-button">
+                LOGIN
+            </button>
+            
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            // Ambil nilai dari input fields
+            const usernameInput = document.getElementById('username').value.trim();
+            const passwordInput = document.getElementById('password').value.trim();
+            
+            // Aturan Validasi
+            const REQUIRED_USERNAME = "admin";
+            const REQUIRED_PASSWORD = "123"; 
+            
+            if (usernameInput === REQUIRED_USERNAME && passwordInput === REQUIRED_PASSWORD) {
+                
+                // --- LOGIN BERHASIL: Arahkan ke dashboard.html ---
+                window.location.href = "dashboard.html";
+
+            } else {
+                // --- LOGIN GAGAL ---
+                alert("Login Gagal! Username harus 'admin' dan Password harus '123'.");
+            }
+        });
+    </script>
+
+</body>
+</html>
